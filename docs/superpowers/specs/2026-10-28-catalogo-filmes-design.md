@@ -73,8 +73,8 @@ O projeto tem dois propósitos:
 - Pôster, título, ano, duração (formato `2h 16min`), gêneros, nota e sinopse.
 - Elenco principal: até 10 pessoas, com foto, nome e personagem.
 - Trailer do YouTube incorporado: prioriza vídeo do tipo `Trailer` em português; se não houver, em inglês; se não houver nenhum, a seção não aparece.
-- **Onde assistir no Brasil:** logotipos dos streamings com o filme disponível por assinatura, mais um link para a página completa de opções (link fornecido pelo TMDB/JustWatch).
-- Se não houver nenhum streaming por assinatura: "Não disponível em streaming no Brasil no momento."
+- **Onde assistir no Brasil:** logotipos dos **principais streamings** (os mesmos 12 da lista de filtros, ver seção 4.4) em que o filme está disponível por assinatura, mais um link para a página completa de opções (link fornecido pelo TMDB/JustWatch).
+- Se o filme não estiver em nenhum desses streamings: "Este filme não está disponível em nenhum streaming no Brasil no momento."
 - Todos os dados vêm de **uma única chamada** ao TMDB (`append_to_response`).
 
 ## 4. Arquitetura
