@@ -103,6 +103,8 @@ As páginas são **Server Components**: os dados são buscados no servidor, e a 
 
 ### 4.3 Estrutura de arquivos
 
+Arquivos que contêm JSX (páginas, layout e componentes) usam a extensão `.jsx` — por exemplo, `app/page.jsx`. Assim o Vitest os entende sem configuração extra. A tabela abaixo cita `.js` por brevidade.
+
 | Arquivo | Responsabilidade |
 |---|---|
 | `lib/tmdb.js` | Único módulo que conversa com o TMDB. Exporta `listarFilmes(filtros)`, `buscarFilmes(termo, pagina)`, `detalhesFilme(id)`, `listarStreamings()`, `listarGeneros()`. |
