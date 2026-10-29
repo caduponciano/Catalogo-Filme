@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import Filtros from "@/components/Filtros";
 import GradeFilmes from "@/components/GradeFilmes";
+import Paginacao from "@/components/Paginacao";
 import { lerFiltros } from "@/lib/filtros";
 import { listarFilmes, listarGeneros, listarStreamings } from "@/lib/tmdb";
 import estilos from "./page.module.css";
@@ -25,7 +26,7 @@ async function Catalogo({ searchParams }) {
     generos: generos.map((g) => g.id),
   });
 
-  const { filmes } = await listarFilmes({
+  const { filmes, totalPaginas } = await listarFilmes({
     streamings: filtros.streaming ? [filtros.streaming] : todosOsStreamings,
     genero: filtros.genero,
     ordem: filtros.ordem,
@@ -36,6 +37,12 @@ async function Catalogo({ searchParams }) {
     <>
       <Filtros streamings={streamings} generos={generos} filtros={filtros} />
       <GradeFilmes filmes={filmes} />
+      <Paginacao
+        pagina={filtros.pagina}
+        totalPaginas={totalPaginas}
+        caminho="/"
+        parametros={{ streaming: filtros.streaming, genero: filtros.genero, ordem: filtros.ordem }}
+      />
     </>
   );
 }

@@ -1,0 +1,29 @@
+.paginacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.botao,
+.desativado {
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+}
+
+.botao {
+  color: var(--texto);
+  background: var(--superficie);
+}
+
+.botao:hover {
+  border-color: var(--destaque);
+}
+
+.desativado {
+  opacity: 0.4;
+}
