@@ -1,12 +1,16 @@
 .cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   border-bottom: 1px solid var(--borda);
-  background: var(--superficie);
+  background: rgba(26, 11, 32, 0.72);
+  backdrop-filter: blur(14px);
 }
 
 .barra {
   max-width: var(--largura-maxima);
   margin: 0 auto;
-  padding: 0.9rem 1rem;
+  padding: 0.8rem 1rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -15,36 +19,14 @@
 }
 
 .marca {
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
-.conteudo {
-  flex: 1;
-  width: 100%;
-  max-width: var(--largura-maxima);
-  margin: 0 auto;
-  padding: 1.5rem 1rem 3rem;
-}
-
-.rodape {
-  border-top: 1px solid var(--borda);
-  padding: 1.5rem 1rem;
-  font-size: 0.85rem;
-  color: var(--texto-suave);
-}
-
-.creditos {
-  max-width: var(--largura-maxima);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.logoTmdb {
-  width: 120px;
-  height: auto;
+  font-family: var(--fonte-titulo), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  background: var(--degrade-marca);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .busca {
@@ -57,19 +39,58 @@
 .campoBusca {
   flex: 1;
   min-width: 0;
-  padding: 0.5rem 0.75rem;
+  padding: 0.55rem 1rem;
   border: 1px solid var(--borda);
-  border-radius: 6px;
-  background: var(--fundo);
+  border-radius: 999px;
+  background: var(--superficie);
   color: var(--texto);
 }
 
+.campoBusca::placeholder {
+  color: var(--texto-suave);
+}
+
+.campoBusca:focus {
+  outline: 2px solid var(--ambar);
+  outline-offset: 1px;
+}
+
 .botaoBusca {
-  padding: 0.5rem 1rem;
+  padding: 0.55rem 1.1rem;
   border: none;
-  border-radius: 6px;
-  background: var(--destaque);
-  color: #14161c;
-  font-weight: 600;
+  border-radius: 999px;
+  background: var(--ambar);
+  color: var(--tinta);
+  font-weight: 700;
   cursor: pointer;
+}
+
+.conteudo {
+  flex: 1;
+  width: 100%;
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.rodape {
+  border-top: 1px solid var(--borda);
+  padding: 1.75rem 0;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  background: rgba(18, 7, 26, 0.6);
+}
+
+.creditos {
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.logoTmdb {
+  width: 120px;
+  height: auto;
 }

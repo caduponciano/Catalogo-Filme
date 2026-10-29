@@ -18,7 +18,7 @@ const MAX_ELENCO = 10;
 export async function generateMetadata({ params }) {
   const id = lerIdFilme((await params).id);
   const detalhes = id ? await detalhesFilme(id) : null;
-  return { title: detalhes ? `${detalhes.title} — Catálogo de Filmes` : "Catálogo de Filmes" };
+  return { title: detalhes ? `${detalhes.title} — CINEMINHA` : "CINEMINHA" };
 }
 
 export default function PaginaFilme({ params }) {
@@ -50,6 +50,20 @@ async function Filme({ params }) {
 
   return (
     <article className={estilos.filme}>
+      {detalhes.backdrop_path && (
+        <div className={estilos.capa}>
+          <Image
+            src={urlImagem(detalhes.backdrop_path, "w1280")}
+            alt=""
+            fill
+            preload
+            sizes="100vw"
+            className={estilos.capaImagem}
+          />
+          <div className={estilos.capaVeu} />
+        </div>
+      )}
+
       <section className={estilos.topo}>
         <Image
           src={urlImagem(detalhes.poster_path, "w500")}
@@ -57,7 +71,7 @@ async function Filme({ params }) {
           width={500}
           height={750}
           className={estilos.poster}
-          priority
+          preload
         />
 
         <div className={estilos.resumo}>

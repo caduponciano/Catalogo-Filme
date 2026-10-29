@@ -2,7 +2,7 @@
 
 ## O que estamos construindo
 
-Um **catálogo de filmes** que mostra o que está disponível agora nos principais streamings do Brasil (Netflix, Prime Video, Disney+, HBO Max, Globoplay…). Os dados vêm do **TMDB** (The Movie Database), um site colaborativo de filmes que oferece uma API gratuita. As informações de "onde assistir" o TMDB recebe do **JustWatch**.
+O **CINEMINHA** é um catálogo de filmes que mostra o que está disponível agora nos principais streamings do Brasil (Netflix, Prime Video, Disney+, HBO Max, Globoplay…). Os dados vêm do **TMDB** (The Movie Database), um site colaborativo de filmes que oferece uma API gratuita. As informações de "onde assistir" o TMDB recebe do **JustWatch**.
 
 O que dá para fazer no site:
 
@@ -49,6 +49,7 @@ Se você já viu Flask: é a mesma ideia de uma rota que busca dados e preenche 
 | 09 | [Quando algo dá errado](09-erros-e-cache.md) |
 | 10 | [Testes](10-testes.md) |
 | 11 | [Publicando na Vercel](11-publicacao.md) |
+| 12 | [Deixando o site bonito](12-visual.md) |
 
 ## Glossário
 

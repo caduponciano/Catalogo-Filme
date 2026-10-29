@@ -6,7 +6,7 @@ import { buscarFilmes } from "@/lib/tmdb";
 import estilos from "../page.module.css";
 
 export const metadata = {
-  title: "Busca — Catálogo de Filmes",
+  title: "Busca — CINEMINHA",
 };
 
 export default function PaginaBusca({ searchParams }) {

@@ -3,27 +3,30 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   font-size: 0.9rem;
   color: var(--texto-suave);
 }
 
 .botao,
 .desativado {
-  padding: 0.45rem 1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
   border: 1px solid var(--borda);
-  border-radius: 6px;
 }
 
 .botao {
   color: var(--texto);
   background: var(--superficie);
+  transition: background 0.15s, color 0.15s;
 }
 
 .botao:hover {
-  border-color: var(--destaque);
+  background: var(--ambar);
+  color: var(--tinta);
+  border-color: var(--ambar);
 }
 
 .desativado {
-  opacity: 0.4;
+  opacity: 0.35;
 }

@@ -6,6 +6,8 @@ import {
   formatarDuracao,
   escolherTrailer,
   ondeAssistir,
+  escolherDestaque,
+  resumir,
 } from "@/lib/formatar";
 
 describe("urlImagem", () => {
@@ -105,5 +107,36 @@ describe("ondeAssistir", () => {
       lista: [],
       link: null,
     });
+  });
+});
+
+describe("escolherDestaque", () => {
+  test("escolhe o primeiro filme com imagem de fundo", () => {
+    const filmes = [
+      { id: 1, backdrop_path: null },
+      { id: 2, backdrop_path: "/b2.jpg" },
+      { id: 3, backdrop_path: "/b3.jpg" },
+    ];
+    expect(escolherDestaque(filmes)).toEqual({ id: 2, backdrop_path: "/b2.jpg" });
+  });
+
+  test("devolve null quando nenhum filme tem imagem de fundo", () => {
+    expect(escolherDestaque([{ id: 1, backdrop_path: null }])).toBeNull();
+    expect(escolherDestaque([])).toBeNull();
+  });
+});
+
+describe("resumir", () => {
+  test("mantém textos curtos como estão", () => {
+    expect(resumir("Um filme curto.", 50)).toBe("Um filme curto.");
+  });
+
+  test("corta no último espaço antes do limite e acrescenta reticências", () => {
+    expect(resumir("O jovem programador Thomas Anderson", 22)).toBe("O jovem programador…");
+  });
+
+  test("devolve texto vazio sem texto", () => {
+    expect(resumir("", 10)).toBe("");
+    expect(resumir(null, 10)).toBe("");
   });
 });

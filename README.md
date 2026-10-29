@@ -1,8 +1,10 @@
-# Catálogo de Filmes
+# CINEMINHA
 
 Site que mostra os filmes disponíveis **agora** nos principais streamings do Brasil, usando a API do [TMDB](https://www.themoviedb.org).
 
 Projeto de estudo e portfólio, feito com Next.js. O passo a passo completo de como ele foi construído está em [`docs/estudo/`](docs/estudo/00-visao-geral.md).
+
+**No ar:** [catalogo-filme-roan.vercel.app](https://catalogo-filme-roan.vercel.app)
 
 ## Funcionalidades
 
@@ -11,6 +13,7 @@ Projeto de estudo e portfólio, feito com Next.js. O passo a passo completo de c
 - **Ordenação** por popularidade, nota ou lançamento.
 - **Busca** por nome.
 - **Página do filme** com sinopse, nota, duração, gêneros, elenco, trailer e onde assistir.
+- Filme em destaque no topo do catálogo, visual em degradê "pôr do sol".
 - Paginação, páginas de erro e de "não encontrado", layout para computador e celular.
 
 ## Tecnologias

@@ -1,21 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Bricolage_Grotesque, Inter } from "next/font/google";
 import "./globals.css";
 import estilos from "./layout.module.css";
 
+// Fontes do Google, baixadas no build e servidas pelo próprio site.
+const fonteTitulo = Bricolage_Grotesque({ subsets: ["latin"], variable: "--fonte-titulo" });
+const fonteTexto = Inter({ subsets: ["latin"], variable: "--fonte-texto" });
+
 export const metadata = {
-  title: "Catálogo de Filmes",
+  title: "CINEMINHA",
   description: "Filmes disponíveis nos streamings do Brasil",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={`${fonteTitulo.variable} ${fonteTexto.variable}`}>
       <body>
         <header className={estilos.cabecalho}>
           <div className={estilos.barra}>
             <Link href="/" className={estilos.marca}>
-              Catálogo de Filmes
+              CINEMINHA
             </Link>
             <form method="get" action="/busca" role="search" className={estilos.busca}>
               <input

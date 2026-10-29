@@ -73,7 +73,7 @@ Um `iframe` é uma "janela" para outra página dentro da sua. O YouTube oferece 
 ```js
 export async function generateMetadata({ params }) {
   ...
-  return { title: `${detalhes.title} — Catálogo de Filmes` };
+  return { title: `${detalhes.title} — CINEMINHA` };
 }
 ```
 

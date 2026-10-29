@@ -1,0 +1,90 @@
+.destaque {
+  position: relative;
+  min-height: 420px;
+  margin-bottom: 2rem;
+  border-radius: var(--raio-grande);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 30px 80px -30px rgba(255, 120, 60, 0.35);
+}
+
+.fundo {
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+/* Dois degradês por cima da imagem: um da esquerda (para o texto ficar legível)
+   e um de baixo (para a imagem "derreter" no fundo da página). */
+.veu {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, var(--fundo) 0%, rgba(42, 15, 46, 0.75) 35%, transparent 75%),
+    linear-gradient(0deg, var(--fundo) 0%, transparent 55%),
+    linear-gradient(120deg, rgba(255, 120, 60, 0.22), rgba(200, 50, 140, 0.12));
+}
+
+.conteudo {
+  position: relative;
+  max-width: 520px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.selo {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: var(--ambar);
+  color: var(--tinta);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+.sinopse {
+  color: var(--texto-suave);
+  font-size: 0.98rem;
+}
+
+.botao {
+  margin-top: 0.25rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  background: var(--ambar);
+  color: var(--tinta);
+  font-weight: 700;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.botao:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -8px rgba(255, 179, 71, 0.7);
+}
+
+@media (max-width: 640px) {
+  .destaque {
+    min-height: 460px;
+  }
+
+  .conteudo {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .veu {
+    background:
+      linear-gradient(0deg, var(--fundo) 0%, rgba(42, 15, 46, 0.7) 45%, transparent 85%),
+      linear-gradient(120deg, rgba(255, 120, 60, 0.22), rgba(200, 50, 140, 0.12));
+  }
+}

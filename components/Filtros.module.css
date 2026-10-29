@@ -3,32 +3,53 @@
   flex-wrap: wrap;
   align-items: flex-end;
   gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+  padding: 1rem;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-grande);
+  background: var(--superficie);
 }
 
 .campo {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.3rem;
   flex: 1 1 160px;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   color: var(--texto-suave);
 }
 
 .campo select {
-  padding: 0.5rem 0.6rem;
+  padding: 0.6rem 0.8rem;
   border: 1px solid var(--borda);
-  border-radius: 6px;
-  background: var(--superficie);
+  border-radius: 10px;
+  background: var(--fundo);
   color: var(--texto);
+  font-size: 0.95rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.campo select:focus {
+  outline: 2px solid var(--ambar);
+  outline-offset: 1px;
 }
 
 .botao {
-  padding: 0.55rem 1.2rem;
+  padding: 0.65rem 1.5rem;
   border: none;
-  border-radius: 6px;
-  background: var(--destaque);
-  color: #14161c;
-  font-weight: 600;
+  border-radius: 10px;
+  background: var(--ambar);
+  color: var(--tinta);
+  font-weight: 700;
   cursor: pointer;
+  transition: box-shadow 0.15s;
+}
+
+.botao:hover {
+  box-shadow: 0 10px 30px -8px rgba(255, 179, 71, 0.7);
 }

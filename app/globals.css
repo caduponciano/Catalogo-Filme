@@ -1,11 +1,21 @@
 :root {
-  --fundo: #14161c;
-  --superficie: #1e2129;
-  --borda: #2f333d;
-  --texto: #eceef3;
-  --texto-suave: #9aa0ad;
-  --destaque: #f5c518;
+  /* Paleta "Pôr do sol" */
+  --fundo: #1a0b20;
+  --fundo-profundo: #12071a;
+  --superficie: rgba(255, 255, 255, 0.05);
+  --superficie-forte: rgba(255, 255, 255, 0.09);
+  --borda: rgba(255, 179, 71, 0.18);
+  --texto: #fbeee6;
+  --texto-suave: #cdb6c4;
+  --ambar: #ffb347;
+  --rosa: #ff5e8a;
+  --tinta: #2a0f2e;
+  --degrade-marca: linear-gradient(90deg, var(--ambar), var(--rosa));
+
+  --raio: 12px;
+  --raio-grande: 20px;
   --largura-maxima: 1200px;
+  /* --fonte-titulo e --fonte-texto vêm do next/font, no layout.jsx */
 }
 
 * {
@@ -22,10 +32,24 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--fundo);
   color: var(--texto);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: var(--fonte-texto), system-ui, sans-serif;
   line-height: 1.5;
+  /* Fundo vinho com dois "brilhos" fixos, como luz de projetor */
+  background:
+    radial-gradient(60vw 50vh at 10% -10%, rgba(255, 120, 60, 0.22), transparent 70%),
+    radial-gradient(50vw 45vh at 100% 30%, rgba(200, 50, 140, 0.18), transparent 70%),
+    linear-gradient(160deg, #2a0f2e 0%, var(--fundo) 45%, var(--fundo-profundo) 100%);
+  background-attachment: fixed;
+  /* A capa da página do filme ocupa a largura toda; o clip evita rolagem lateral. */
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fonte-titulo), system-ui, sans-serif;
+  letter-spacing: -0.01em;
 }
 
 a {
@@ -42,4 +66,9 @@ button,
 input,
 select {
   font: inherit;
+}
+
+::selection {
+  background: var(--ambar);
+  color: var(--tinta);
 }
