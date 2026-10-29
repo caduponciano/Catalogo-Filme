@@ -43,3 +43,6 @@ next-env.d.ts
 
 # configurações locais do Claude Code
 .claude/settings.local.json
+
+# rascunhos do processo de design (mockups, planos em execução)
+.superpowers/
