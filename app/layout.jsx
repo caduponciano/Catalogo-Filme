@@ -17,6 +17,18 @@ export default function RootLayout({ children }) {
             <Link href="/" className={estilos.marca}>
               Catálogo de Filmes
             </Link>
+            <form method="get" action="/busca" role="search" className={estilos.busca}>
+              <input
+                type="search"
+                name="q"
+                placeholder="Buscar filme…"
+                aria-label="Buscar filme"
+                className={estilos.campoBusca}
+              />
+              <button type="submit" className={estilos.botaoBusca}>
+                Buscar
+              </button>
+            </form>
           </div>
         </header>
 

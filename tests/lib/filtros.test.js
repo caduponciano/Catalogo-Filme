@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { lerFiltros, lerPagina, paraQuery } from "@/lib/filtros";
+import { lerFiltros, lerPagina, paraQuery, lerBusca } from "@/lib/filtros";
 
 const listas = { streamings: [8, 119], generos: [28, 35] };
 
@@ -55,5 +55,27 @@ describe("paraQuery", () => {
     expect(paraQuery({ streaming: 8, genero: null, ordem: "nota", q: "", pagina: 2 })).toBe(
       "streaming=8&ordem=nota&pagina=2",
     );
+  });
+});
+
+describe("lerBusca", () => {
+  test("lê termo e página", () => {
+    expect(lerBusca({ q: "matrix", pagina: "2" })).toEqual({ termo: "matrix", pagina: 2 });
+  });
+
+  test("remove espaços das pontas", () => {
+    expect(lerBusca({ q: "  matrix  " }).termo).toBe("matrix");
+  });
+
+  test("trata só espaços como busca vazia", () => {
+    expect(lerBusca({ q: "   " }).termo).toBe("");
+  });
+
+  test("sem q devolve termo vazio", () => {
+    expect(lerBusca({})).toEqual({ termo: "", pagina: 1 });
+  });
+
+  test("usa o primeiro q repetido", () => {
+    expect(lerBusca({ q: ["a", "b"] }).termo).toBe("a");
   });
 });
