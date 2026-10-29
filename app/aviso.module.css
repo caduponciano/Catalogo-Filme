@@ -1,0 +1,22 @@
+.aviso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.aviso p {
+  color: var(--texto-suave);
+}
+
+.botao {
+  padding: 0.55rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--destaque);
+  color: #14161c;
+  font-weight: 600;
+  cursor: pointer;
+}
