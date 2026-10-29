@@ -1,5 +1,12 @@
 import { describe, test, expect } from "vitest";
-import { urlImagem, extrairAno, formatarNota } from "@/lib/formatar";
+import {
+  urlImagem,
+  extrairAno,
+  formatarNota,
+  formatarDuracao,
+  escolherTrailer,
+  ondeAssistir,
+} from "@/lib/formatar";
 
 describe("urlImagem", () => {
   test("monta a URL do TMDB", () => {
@@ -34,5 +41,69 @@ describe("formatarNota", () => {
   test("mostra um traço sem nota", () => {
     expect(formatarNota(null)).toBe("–");
     expect(formatarNota(0)).toBe("–");
+  });
+});
+
+describe("formatarDuracao", () => {
+  test("mostra horas e minutos", () => {
+    expect(formatarDuracao(136)).toBe("2h 16min");
+    expect(formatarDuracao(120)).toBe("2h");
+    expect(formatarDuracao(45)).toBe("45min");
+  });
+
+  test("devolve texto vazio sem duração", () => {
+    expect(formatarDuracao(0)).toBe("");
+    expect(formatarDuracao(null)).toBe("");
+    expect(formatarDuracao(undefined)).toBe("");
+  });
+});
+
+describe("escolherTrailer", () => {
+  const trailerEn = { site: "YouTube", type: "Trailer", key: "en1", iso_639_1: "en" };
+  const trailerPt = { site: "YouTube", type: "Trailer", key: "pt1", iso_639_1: "pt" };
+
+  test("prefere português", () => {
+    expect(escolherTrailer([trailerEn, trailerPt])).toBe("pt1");
+  });
+
+  test("usa inglês na falta de português", () => {
+    expect(escolherTrailer([trailerEn])).toBe("en1");
+  });
+
+  test("ignora teasers e outros sites", () => {
+    expect(
+      escolherTrailer([
+        { site: "YouTube", type: "Teaser", key: "t", iso_639_1: "pt" },
+        { site: "Vimeo", type: "Trailer", key: "v", iso_639_1: "pt" },
+      ]),
+    ).toBeNull();
+    expect(escolherTrailer(undefined)).toBeNull();
+  });
+});
+
+describe("ondeAssistir", () => {
+  test("lista só os principais streamings", () => {
+    const provedores = {
+      link: "https://www.themoviedb.org/movie/603/watch",
+      flatrate: [
+        { provider_id: 8, provider_name: "Netflix", logo_path: "/n.png" },
+        { provider_id: 9999, provider_name: "Outro", logo_path: "/o.png" },
+      ],
+    };
+    expect(ondeAssistir(provedores, [8, 119])).toEqual({
+      lista: [{ id: 8, nome: "Netflix", logo: "/n.png" }],
+      link: "https://www.themoviedb.org/movie/603/watch",
+    });
+  });
+
+  test("sem dados do Brasil", () => {
+    expect(ondeAssistir(undefined, [8])).toEqual({ lista: [], link: null });
+  });
+
+  test("só com aluguel não conta como streaming", () => {
+    expect(ondeAssistir({ link: "x", rent: [{ provider_id: 8 }] }, [8])).toEqual({
+      lista: [],
+      link: null,
+    });
   });
 });

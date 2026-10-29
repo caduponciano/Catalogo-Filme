@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { lerFiltros, lerPagina, paraQuery, lerBusca } from "@/lib/filtros";
+import { lerFiltros, lerPagina, paraQuery, lerBusca, lerIdFilme } from "@/lib/filtros";
 
 const listas = { streamings: [8, 119], generos: [28, 35] };
 
@@ -77,5 +77,17 @@ describe("lerBusca", () => {
 
   test("usa o primeiro q repetido", () => {
     expect(lerBusca({ q: ["a", "b"] }).termo).toBe("a");
+  });
+});
+
+describe("lerIdFilme", () => {
+  test("aceita inteiros positivos", () => {
+    expect(lerIdFilme("603")).toBe(603);
+  });
+
+  test("recusa valores inválidos", () => {
+    for (const valor of ["abc", "-5", "1.5", "0", ""]) {
+      expect(lerIdFilme(valor)).toBeNull();
+    }
   });
 });
