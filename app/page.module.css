@@ -2,3 +2,7 @@
   font-size: 1.6rem;
   margin-bottom: 1.25rem;
 }
+
+.carregando {
+  color: var(--texto-suave);
+}
