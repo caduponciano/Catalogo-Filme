@@ -1,0 +1,44 @@
+.cartao {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--superficie);
+  transition: transform 0.15s;
+}
+
+.cartao:hover,
+.cartao:focus-visible {
+  transform: translateY(-4px);
+}
+
+.poster {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  background: var(--borda);
+}
+
+.info {
+  padding: 0.5rem 0.6rem 0.7rem;
+}
+
+.titulo {
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+.detalhes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.nota {
+  color: var(--destaque);
+  font-weight: 600;
+}
