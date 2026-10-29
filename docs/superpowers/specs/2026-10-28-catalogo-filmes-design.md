@@ -137,7 +137,7 @@ Arquivos que contêm JSX (páginas, layout e componentes) usam a extensão `.jsx
 | `listarFilmes` | `GET /3/discover/movie` | `with_watch_providers` (IDs separados por `\|`), `with_watch_monetization_types=flatrate`, `with_genres`, `sort_by`, `page` |
 | `buscarFilmes` | `GET /3/search/movie` | `query`, `page`, `include_adult=false` |
 | `detalhesFilme` | `GET /3/movie/{id}` | `append_to_response=credits,videos,watch/providers`, `include_video_language=pt,en` |
-| `listarStreamings` | `GET /3/watch/providers/movie` | — (resultado ordenado por `display_priority`, mantidos os 12 primeiros) |
+| `listarStreamings` | `GET /3/watch/providers/movie` | — (sem as lojas de aluguel/compra: IDs 2, 3, 10, 68, 192; resultado ordenado por `display_priority`, mantidos os 12 primeiros) |
 | `listarGeneros` | `GET /3/genre/movie/list` | — |
 
 - **Ordenação:**

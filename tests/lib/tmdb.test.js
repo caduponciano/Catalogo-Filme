@@ -172,6 +172,27 @@ describe("listarStreamings", () => {
     expect(resultado[0]).toEqual({ id: 15, nome: "S15", logo: "/l15.png" });
     expect(cacheLife).toHaveBeenCalledWith("days");
   });
+
+  test("deixa de fora as lojas de aluguel e compra", async () => {
+    const loja = (id, nome) => ({
+      provider_id: id,
+      provider_name: nome,
+      logo_path: "/" + id + ".png",
+      display_priorities: { BR: 0 },
+    });
+    const streaming = { provider_id: 8, provider_name: "Netflix", logo_path: "/n.png", display_priorities: { BR: 1 } };
+    responder({
+      results: [
+        loja(2, "Apple TV Store"),
+        loja(3, "Google Play Movies"),
+        loja(10, "Amazon Video"),
+        loja(68, "Microsoft Store"),
+        loja(192, "YouTube"),
+        streaming,
+      ],
+    });
+    expect(await listarStreamings()).toEqual([{ id: 8, nome: "Netflix", logo: "/n.png" }]);
+  });
 });
 
 describe("listarGeneros", () => {

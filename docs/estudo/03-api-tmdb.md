@@ -75,7 +75,7 @@ Cada combinação de argumentos tem o seu próprio resultado guardado: `listarFi
 Seguimos o **TDD** (*Test-Driven Development*, desenvolvimento guiado por testes):
 
 1. **Vermelho:** escrevemos os testes primeiro e os rodamos. Eles falharam, porque o `lib/tmdb.js` ainda não existia.
-2. **Verde:** escrevemos o código até todos passarem (17 testes).
+2. **Verde:** escrevemos o código até todos passarem (16 testes nesta etapa).
 
 Ver o teste falhar antes é o que prova que ele testa alguma coisa de verdade. O capítulo 10 aprofunda isso.
 

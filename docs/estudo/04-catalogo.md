@@ -59,10 +59,17 @@ A `key` identifica cada item. O React a usa para saber o que mudou quando a list
 
 ### Server Component com `async`
 
+Nesta etapa, a página ficou assim (no capítulo 05 ela muda um pouco, para ler os filtros da URL):
+
 ```jsx
 export default async function Catalogo() {
   const streamings = await listarStreamings();
-  const { filmes } = await listarFilmes({ ... });
+  const { filmes } = await listarFilmes({
+    streamings: streamings.map((s) => s.id),
+    genero: null,
+    ordem: "popularidade",
+    pagina: 1,
+  });
   return <GradeFilmes filmes={filmes} />;
 }
 ```

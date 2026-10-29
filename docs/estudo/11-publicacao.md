@@ -2,7 +2,7 @@
 
 ## O que fizemos
 
-Colocamos o site no ar, com um endereço público para o portfólio. O código foi para um repositório no **GitHub**, e a **Vercel** passou a construir e publicar o site a partir dele. A cada `git push`, a Vercel publica a versão nova sozinha.
+Neste capítulo o site vai para o ar, com um endereço público para o portfólio. O código vai para um repositório no **GitHub**, e a **Vercel** passa a construir e publicar o site a partir dele. A cada `git push`, a Vercel publica a versão nova sozinha.
 
 ## Por que fizemos assim
 

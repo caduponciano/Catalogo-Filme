@@ -8,7 +8,7 @@ Clicar num cartão agora abre `/filme/603`, com pôster, título, ano, duração
 
 - **Uma chamada só ao TMDB.** O parâmetro `append_to_response=credits,videos,watch/providers` faz o TMDB devolver detalhes, elenco, vídeos e "onde assistir" numa resposta só, em vez de quatro.
 - **Validar o ID antes de chamar o TMDB.** `/filme/abc` nem chega a gastar uma requisição: o `lerIdFilme` recusa o valor e a página chama `notFound()`.
-- **Só os principais streamings, só assinatura.** O TMDB lista dezenas de serviços, incluindo lojas de aluguel. Mostramos apenas os mesmos 12 dos filtros do catálogo, e apenas quando o filme está incluído na assinatura (`flatrate`).
+- **Só os principais streamings, só assinatura.** O TMDB lista dezenas de serviços, incluindo lojas de aluguel e compra (Apple TV Store, Google Play, Amazon Video…). O `listarStreamings` tira essas lojas da lista e fica com os 12 primeiros; mostramos apenas esses 12, os mesmos dos filtros do catálogo, e apenas quando o filme está incluído na assinatura (`flatrate`).
 - **Trailer em português, senão em inglês.** A função `escolherTrailer` decide; se não houver trailer, a seção some.
 
 ## Conceitos novos

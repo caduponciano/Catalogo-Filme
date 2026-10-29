@@ -2,7 +2,7 @@
 
 ## O que fizemos
 
-Ao longo do projeto escrevemos **66 testes automáticos** em 10 arquivos. Eles conferem as funções do `lib/` (API, filtros, formatação), os componentes (cartão, grade, filtros, paginação) e as páginas de erro e de "não encontrado". Todos rodam em poucos segundos, sem internet, com `npm test`.
+Ao longo do projeto escrevemos **67 testes automáticos** em 10 arquivos. Eles conferem as funções do `lib/` (API, filtros, formatação), os componentes (cartão, grade, filtros, paginação) e as páginas de erro e de "não encontrado". Todos rodam em poucos segundos, sem internet, com `npm test`.
 
 Este capítulo junta o que foi aparecendo aos poucos nos anteriores.
 
@@ -98,7 +98,7 @@ fireEvent.click(botao);                                    // simula um clique
 
 ### O ciclo TDD, com um exemplo real
 
-Na etapa 6 (busca), o teste veio primeiro:
+Na etapa da busca (capítulo 07), o teste veio primeiro:
 
 ```js
 test("trata só espaços como busca vazia", () => {
@@ -150,6 +150,6 @@ Volte ao exercício do capítulo 03 (filtro por ano) e faça-o com TDD completo:
 
 1. Escreva o teste em `tests/lib/tmdb.test.js` e rode `npm test` — ele deve **falhar**.
 2. Faça o mínimo em `lib/tmdb.js` para ele passar.
-3. Rode a suíte inteira e confira que os 66 testes antigos continuam passando.
+3. Rode a suíte inteira e confira que os 67 testes antigos continuam passando.
 
 Depois, deixe o `npm run test:watch` aberto enquanto faz o exercício do capítulo 05 e veja os testes rodarem sozinhos a cada vez que você salva um arquivo.
